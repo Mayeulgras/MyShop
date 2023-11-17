@@ -7,7 +7,9 @@
             <p>
               <input type="text" name="recherche" id="recherche" onKeyUp="rechercheMAJ()" autocomplete="off" placeholder="Rechercher"/>  
             </p>  
-            <button><a href="/about">Log in</a></button>  
+            <button><a href="/about">Log in</a></button> 
+            <button><a href="/categories">categories</a></button>  
+
           </header>
           <div class="prod">
           <section class="list" v-if="getStatus == 'done'">
@@ -67,7 +69,7 @@ export default {
         const Description = document.getElementById('Description').value;
         const Price = parseFloat(document.getElementById('Price').value);
         const Categories = document.getElementById('Categories').value.split(',').map(category => category.trim());
-        const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDAyMDg5MzgsImV4cCI6MTcwMDIxMjUzOCwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6Im1heWV1bC5ncmFzQGVwaXRlY2guZGlnaXRhbCJ9.tiLcf6qUJJah_fwlzYbgana_5p4kSksMZcvouJb6GqOSj6BW5J3R-vgVo9ds6D7yqQYMdQyc0aiVutJcqN0_HMuThIyQqAFM5-ff8GkoLuLk1nI746IKJvczgJ4OeViY_ZuficBof2Fn7oiI0gRMWZPDntrulCa1gMiv3tMgkP6fn20y84fmrGXGctfgTRwGIhMtu9Da_SHMnMJdN8-aYYc4OM7uyd2_0crU-WbmmrGbTzhAxIY-GEInIDIcr1QpHwEk2cKUOjWF4CHtAmk5d1RKNvauyLB0JwVfoa3NM8r2AqtQeKhMuCWW54ypzUkdHpKwVpuWhVuotR3ceQN1Og';
+        const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDAyMzk3OTksImV4cCI6MTcwMDI0MzM5OSwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6Im1heWV1bC5ncmFzQGVwaXRlY2guZGlnaXRhbCJ9.MiGWtLoUcvQ7ke_JmWo0Ad0icSA9twRzpPZawi52HtRvk6YnU6_0Vbeb_R4JZF0-Hxj9_SDIH5Qc0SOyN_NRoj9UatPSLKD87eEsEhzAWP0P-L3f-YQPgJO_57ejUTNAGsHyst1sqx1nMRcFX6nEDkfFu0Pm4X27k1dsD-jl4tuBtMd-PuXbxtURaTEe7M7UqMGIno8VGiA6r_Y10F2aV3YS1MkIofB4YPtP5ra2TwwlFPioc2XJQ0ba8ehKEn6ZmQrSsqj4QplOT7XEtRnEAeR-ElG5LNoXqN3Ibjgz-qcHVxyiTQCjYVJSLcbZOUR77oiTlZAab1GStFPiOrgUEw';
         console.log({
             name: Name,
             description: Description,
@@ -95,7 +97,7 @@ export default {
         });
       },
       deleteProduct(id) {
-        const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDAyMDg5MzgsImV4cCI6MTcwMDIxMjUzOCwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6Im1heWV1bC5ncmFzQGVwaXRlY2guZGlnaXRhbCJ9.tiLcf6qUJJah_fwlzYbgana_5p4kSksMZcvouJb6GqOSj6BW5J3R-vgVo9ds6D7yqQYMdQyc0aiVutJcqN0_HMuThIyQqAFM5-ff8GkoLuLk1nI746IKJvczgJ4OeViY_ZuficBof2Fn7oiI0gRMWZPDntrulCa1gMiv3tMgkP6fn20y84fmrGXGctfgTRwGIhMtu9Da_SHMnMJdN8-aYYc4OM7uyd2_0crU-WbmmrGbTzhAxIY-GEInIDIcr1QpHwEk2cKUOjWF4CHtAmk5d1RKNvauyLB0JwVfoa3NM8r2AqtQeKhMuCWW54ypzUkdHpKwVpuWhVuotR3ceQN1Og'; // Remplacez par votre token d'authentification
+        const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDAyMzk3OTksImV4cCI6MTcwMDI0MzM5OSwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6Im1heWV1bC5ncmFzQGVwaXRlY2guZGlnaXRhbCJ9.MiGWtLoUcvQ7ke_JmWo0Ad0icSA9twRzpPZawi52HtRvk6YnU6_0Vbeb_R4JZF0-Hxj9_SDIH5Qc0SOyN_NRoj9UatPSLKD87eEsEhzAWP0P-L3f-YQPgJO_57ejUTNAGsHyst1sqx1nMRcFX6nEDkfFu0Pm4X27k1dsD-jl4tuBtMd-PuXbxtURaTEe7M7UqMGIno8VGiA6r_Y10F2aV3YS1MkIofB4YPtP5ra2TwwlFPioc2XJQ0ba8ehKEn6ZmQrSsqj4QplOT7XEtRnEAeR-ElG5LNoXqN3Ibjgz-qcHVxyiTQCjYVJSLcbZOUR77oiTlZAab1GStFPiOrgUEw'; // Remplacez par votre token d'authentification
         fetch(`http://localhost/api/products/${id}`, {
           method: 'DELETE',
           headers: {
@@ -115,6 +117,19 @@ export default {
           // Gérer l'erreur de l'API si nécessaire
         });
       },
+
+      editProduct(product) {
+        // Pré-remplir le formulaire avec les détails du produit sélectionné
+        document.getElementById('Name').value = product.name;
+        document.getElementById('Description').value = product.description;
+        document.getElementById('Price').value = product.price;
+        document.getElementById('Categories').value = product.categories.join(', ');
+
+        // Enregistrez l'ID du produit actuellement édité
+        // this.editingProductId = product.id;
+
+        // Vous pouvez également ajouter une logique pour afficher/modifier l'interface utilisate
+      }
     }
   }
   
@@ -123,7 +138,7 @@ export default {
 
 
 
-<style>
+<style scoped>
 /* .conteneur {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

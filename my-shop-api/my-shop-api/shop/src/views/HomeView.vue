@@ -7,7 +7,7 @@
             <img src="../img/logo.png" alt="" width="50" height="50">
             
             <p>
-              <input type="text" name="recherche" id="recherche" onKeyUp="rechercheMAJ()" autocomplete="off" placeholder="Rechercher"/>  
+              <input type="text" name="recherche" id="recherche" placeholder="Rechercher"/>  
             </p>  
             <button><a href="/about">Log in</a></button>  
           </header>
@@ -38,8 +38,7 @@
               <h1 class="info">{{ products.description }}</h1>
               <h1 class="info">{{ products.price + ' $' }}</h1>
               <button>Purchase</button>
-
-            </article>
+              </article>
           </section>
           </div>
         </div>
@@ -52,7 +51,7 @@ import { useProductsStore } from "../stores/counter";
 export default {
   data (){
     return {
-      products: []
+      products: [],
     };
   },
   mounted() {
@@ -60,7 +59,8 @@ export default {
   },
   computed: {
     ...mapActions(useProductsStore, ["fetchProducts"]),
-    ...mapState(useProductsStore, ["getProducts", "getStatus"])
+    ...mapState(useProductsStore, ["getProducts", "getStatus"]),
+    
   },
   method: {
 

@@ -30,7 +30,7 @@ export default {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         const fullname = document.getElementById('fullName').value;
-        const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDAxMzEyOTUsImV4cCI6MTcwMDEzNDg5NSwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6Im1heWV1bC5ncmFzQGVwaXRlY2guZGlnaXRhbCJ9.bJ-sNCJdrORt4apJtlJZUTOPyf-1AMZTukkf7dArwZ_nas0n7iG9dtS9RkpNBNu2TaEME7s9AZJa0tesxdKo7GF7ClJGX7LovWG16b96hSVeNgvyF2mMspn4xDtp5TkrNOZnVCW5tRDXL_vJtLan4GnplimDLP-b-HTFu_PmndbQaVHJ6eXNrbbiP3jGBuLPLpe5xPil1Upn_ng7svOVifGGK3dJNl09rSoektg4QvbnDNG4ylaXq9-JNl9_Vcxk3CpDrG22FaUb4zz9mdd99c_-R5rZ3HpEdGOwKulzpmQ_2dL45qIW_LqFLxa8Zi7tzR71FoM84dn8Cn0n4uEvPA';
+        const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDAyMzk3OTksImV4cCI6MTcwMDI0MzM5OSwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6Im1heWV1bC5ncmFzQGVwaXRlY2guZGlnaXRhbCJ9.MiGWtLoUcvQ7ke_JmWo0Ad0icSA9twRzpPZawi52HtRvk6YnU6_0Vbeb_R4JZF0-Hxj9_SDIH5Qc0SOyN_NRoj9UatPSLKD87eEsEhzAWP0P-L3f-YQPgJO_57ejUTNAGsHyst1sqx1nMRcFX6nEDkfFu0Pm4X27k1dsD-jl4tuBtMd-PuXbxtURaTEe7M7UqMGIno8VGiA6r_Y10F2aV3YS1MkIofB4YPtP5ra2TwwlFPioc2XJQ0ba8ehKEn6ZmQrSsqj4QplOT7XEtRnEAeR-ElG5LNoXqN3Ibjgz-qcHVxyiTQCjYVJSLcbZOUR77oiTlZAab1GStFPiOrgUEw';
    
         Axios.post('http://localhost/api/users', {
           email: email,

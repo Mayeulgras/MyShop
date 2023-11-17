@@ -1,7 +1,30 @@
-# MyShop
-site E-com vue.js et docker
-https://www.youtube.com/watch?v=0WXu489vWrE&list=PLNMj5yr2OQZ9w513uTFGwrIGyWYorpRXG&index=4&t=2990s&ab_channel=MattisSIMON
+# README MyShop
 
-{
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2OTk4ODM0MTIsImV4cCI6MTY5OTg4NzAxMiwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6Im1heWV1bC5ncmFzQGVwaXRlY2guZGlnaXRhbCJ9.JYQWWrZHf7IldZDZDS6nLPCE7FUfHLnknVZBlLy0VQpVIm1B4mckX0og2zT15QCzIsYdBZgLNIgkpOhPT64oHYjxkwyKzqbImWo5q3z1_eEpcx1KQRRDEnJdE07lFgJ1b3JcRExHoPm1byPORspw9gR6GbJUKYkdf9ITO89t7LJjTartebRrrFitjOfsLZQMXzbBMRHn15B3m9vPQUUVJsp9DO555UFZul_-0OYHeimjaohr5bpmJHasNThfw1kizIM7BvAqW__yR3Sk3FjIHn1t_Rwc5JYvbhen4vXgqcJ2MSNmt0Z80dmnPgLTyJKxEFfF8cxrtpvC0wFOLFVVPw"
-}
+## Installation de docker
+
+Tout d’abord, avant de commencer le projet, veuillez installer docker desktop sur votre ordinateur suivant la bonne version.
+
+## Rendre le docker prêt à l'utilisation
+
+- Ouvrez le terminal à partir de votre dossier docker et entrez la commande ( docker-compose up -d –build )
+
+- Ensuite allez sur docker desktop et cliquez sur le phpmyadmin et dans la console entrez la commande ( bin/console doctrine :database :create ) 
+
+- Ensuite entrez dans la console la commande suivante ( bin/console doctrine :migrations :migrate )
+
+- Ensuite entrez dans la console la commande suivante ( bin/console lexik :jwt :generate-keypair )
+
+- Ensuite entrez dans la console la commande suivante ( bin/console app :add-user )
+Votre docker est prêt à être utilisé !
+
+## Pour lancer et arrêter le docker 
+
+Pour lancer et arrêter votre docker vous pouvez entrer ces deux commandes dans la console du fichier docker ( docker-compose up -d et docker-compose down )
+
+## Pour voir les routes de l'api
+
+Pour voir toutes les routes de votre api vous pouvez cliquer sur ce lien ( http://localhost/api/docs )
+
+## Installation des dépendances
+
+Maintenant vous aurez besoins d’installer toutes les dépendances nécessaires à la réalisation de votre projet. Pour ça allez dans votre dossier MyShop, entrez dans le terminal et entrez la commande ( npm install ). Cela va installer « axios » , « pinia », « vue » et « vue-router ».
