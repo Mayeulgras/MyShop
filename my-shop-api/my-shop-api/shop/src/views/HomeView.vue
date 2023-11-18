@@ -32,7 +32,7 @@
           </section>
            </div>
           <div class="prod">
-          <section class="list" v-if="getStatus == 'done'">
+          <section class="list" v-if="getStatus == 'done'" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
             <article class="produit" v-for="products in getProducts.data['hydra:member']" :key="products.name">
               <h1 class="info">{{ products.name }}</h1>
               <h1 class="info">{{ products.description }}</h1>
@@ -63,7 +63,7 @@ export default {
     
   },
   method: {
-
+    
   }
 };
 
@@ -82,11 +82,11 @@ body{
   display: flex;
 }
 
-.info{
+/* .info{
   padding: 1%;
   width: 200px;
   border:1px solid black;
-}
+} */
 .list{
 
 }

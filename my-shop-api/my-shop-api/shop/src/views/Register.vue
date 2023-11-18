@@ -1,5 +1,5 @@
 <template>
-    <form>
+    <form @submit.prevent="">
       <div class="container">
         <h1>Register</h1>
         <p>Please fill in this form to create an account.</p>
@@ -30,7 +30,7 @@ export default {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         const fullname = document.getElementById('fullName').value;
-        const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDAyMzk3OTksImV4cCI6MTcwMDI0MzM5OSwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6Im1heWV1bC5ncmFzQGVwaXRlY2guZGlnaXRhbCJ9.MiGWtLoUcvQ7ke_JmWo0Ad0icSA9twRzpPZawi52HtRvk6YnU6_0Vbeb_R4JZF0-Hxj9_SDIH5Qc0SOyN_NRoj9UatPSLKD87eEsEhzAWP0P-L3f-YQPgJO_57ejUTNAGsHyst1sqx1nMRcFX6nEDkfFu0Pm4X27k1dsD-jl4tuBtMd-PuXbxtURaTEe7M7UqMGIno8VGiA6r_Y10F2aV3YS1MkIofB4YPtP5ra2TwwlFPioc2XJQ0ba8ehKEn6ZmQrSsqj4QplOT7XEtRnEAeR-ElG5LNoXqN3Ibjgz-qcHVxyiTQCjYVJSLcbZOUR77oiTlZAab1GStFPiOrgUEw';
+        const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDAzMjI5MjAsImV4cCI6MTcwMDMyNjUyMCwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6Im1heWV1bC5ncmFzQGVwaXRlY2guZGlnaXRhbCJ9.vZR7ZrADQetjmMI-vNGx-eNDr0Dw3ZlKgv_0FE0La3eT0IAHIsImrQix-2hestP1nlebAf_DcfLLYRXLTUlR2ybp5aQ3KKynO3cKk4tKswm8uinD7-hBtoUhh6ztLOFnaJ7A8nTq8ttRMqqtCe_pNVbzXpke7VZwb8utATb03gG_hH8cMfoBBHhpDDuYmtHd78VWNgfbzo8XRTWwDhqqe9PTJdKodYOaxTTBaLjwPIWXo_AbiMh2ejo1GTzb_z-qkICGOv4ZpCHZVDTsChi5O_Fzh7rjHDTqvbYBrEnvODwZgHbglySAKTFR0KejFfgqBI9R3LDksICh4dbmZDpVxw';
    
         Axios.post('http://localhost/api/users', {
           email: email,
@@ -44,6 +44,7 @@ export default {
         })
         .then(response => {
           // Gérer la réponse de l'API si nécessaire
+          console.log('User créé avec succès', response.data)
         })
         .catch(error => {
           // Gérer l'erreur de l'API si nécessaire

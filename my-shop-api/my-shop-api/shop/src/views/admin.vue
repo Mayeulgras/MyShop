@@ -18,8 +18,16 @@
               <h1 class="info">{{ products.description }}</h1>
               <h1 class="info">{{ products.price + ' $'}}</h1>
               <h1 class="info">{{ products.categories}}</h1>
-              <button>Edit</button>
+              <button @click="editProduct(products)">Edit</button>
               <button @click="deleteProduct(products.id)">Delete</button>
+              <form @submit.prevent="">
+                <!-- Utilisez v-model pour lier les champs aux propriétés de editedProduct -->
+                <input type="text" v-model="editedProduct.name" placeholder="Name" name="email" required>
+                <input type="text" v-model="editedProduct.description" placeholder="Description" name="psw" required>
+                <input type="text" v-model="editedProduct.price" placeholder="Price" name="psw-repeat" required>
+                <input type="text" v-model="editedProduct.categories" placeholder="Categories" name="psw-repeat" required>
+                <button type="submit" class="registerbtn" @click="updateProduct">Update product</button>
+              </form>
 
             </article>
           </section>
@@ -53,6 +61,13 @@ export default {
   data (){
     return {
       products: [],
+      editedProduct: {
+      id: null,
+      name: '',
+      description: '',
+      price: 0,
+      categories: [],
+    },
     };
     
   },
@@ -69,7 +84,7 @@ export default {
         const Description = document.getElementById('Description').value;
         const Price = parseFloat(document.getElementById('Price').value);
         const Categories = document.getElementById('Categories').value.split(',').map(category => category.trim());
-        const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDAyMzk3OTksImV4cCI6MTcwMDI0MzM5OSwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6Im1heWV1bC5ncmFzQGVwaXRlY2guZGlnaXRhbCJ9.MiGWtLoUcvQ7ke_JmWo0Ad0icSA9twRzpPZawi52HtRvk6YnU6_0Vbeb_R4JZF0-Hxj9_SDIH5Qc0SOyN_NRoj9UatPSLKD87eEsEhzAWP0P-L3f-YQPgJO_57ejUTNAGsHyst1sqx1nMRcFX6nEDkfFu0Pm4X27k1dsD-jl4tuBtMd-PuXbxtURaTEe7M7UqMGIno8VGiA6r_Y10F2aV3YS1MkIofB4YPtP5ra2TwwlFPioc2XJQ0ba8ehKEn6ZmQrSsqj4QplOT7XEtRnEAeR-ElG5LNoXqN3Ibjgz-qcHVxyiTQCjYVJSLcbZOUR77oiTlZAab1GStFPiOrgUEw';
+        const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDAzMjI5MjAsImV4cCI6MTcwMDMyNjUyMCwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6Im1heWV1bC5ncmFzQGVwaXRlY2guZGlnaXRhbCJ9.vZR7ZrADQetjmMI-vNGx-eNDr0Dw3ZlKgv_0FE0La3eT0IAHIsImrQix-2hestP1nlebAf_DcfLLYRXLTUlR2ybp5aQ3KKynO3cKk4tKswm8uinD7-hBtoUhh6ztLOFnaJ7A8nTq8ttRMqqtCe_pNVbzXpke7VZwb8utATb03gG_hH8cMfoBBHhpDDuYmtHd78VWNgfbzo8XRTWwDhqqe9PTJdKodYOaxTTBaLjwPIWXo_AbiMh2ejo1GTzb_z-qkICGOv4ZpCHZVDTsChi5O_Fzh7rjHDTqvbYBrEnvODwZgHbglySAKTFR0KejFfgqBI9R3LDksICh4dbmZDpVxw';
         console.log({
             name: Name,
             description: Description,
@@ -97,7 +112,7 @@ export default {
         });
       },
       deleteProduct(id) {
-        const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDAyMzk3OTksImV4cCI6MTcwMDI0MzM5OSwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6Im1heWV1bC5ncmFzQGVwaXRlY2guZGlnaXRhbCJ9.MiGWtLoUcvQ7ke_JmWo0Ad0icSA9twRzpPZawi52HtRvk6YnU6_0Vbeb_R4JZF0-Hxj9_SDIH5Qc0SOyN_NRoj9UatPSLKD87eEsEhzAWP0P-L3f-YQPgJO_57ejUTNAGsHyst1sqx1nMRcFX6nEDkfFu0Pm4X27k1dsD-jl4tuBtMd-PuXbxtURaTEe7M7UqMGIno8VGiA6r_Y10F2aV3YS1MkIofB4YPtP5ra2TwwlFPioc2XJQ0ba8ehKEn6ZmQrSsqj4QplOT7XEtRnEAeR-ElG5LNoXqN3Ibjgz-qcHVxyiTQCjYVJSLcbZOUR77oiTlZAab1GStFPiOrgUEw'; // Remplacez par votre token d'authentification
+        const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDAzMjI5MjAsImV4cCI6MTcwMDMyNjUyMCwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6Im1heWV1bC5ncmFzQGVwaXRlY2guZGlnaXRhbCJ9.vZR7ZrADQetjmMI-vNGx-eNDr0Dw3ZlKgv_0FE0La3eT0IAHIsImrQix-2hestP1nlebAf_DcfLLYRXLTUlR2ybp5aQ3KKynO3cKk4tKswm8uinD7-hBtoUhh6ztLOFnaJ7A8nTq8ttRMqqtCe_pNVbzXpke7VZwb8utATb03gG_hH8cMfoBBHhpDDuYmtHd78VWNgfbzo8XRTWwDhqqe9PTJdKodYOaxTTBaLjwPIWXo_AbiMh2ejo1GTzb_z-qkICGOv4ZpCHZVDTsChi5O_Fzh7rjHDTqvbYBrEnvODwZgHbglySAKTFR0KejFfgqBI9R3LDksICh4dbmZDpVxw'; // Remplacez par votre token d'authentification
         fetch(`http://localhost/api/products/${id}`, {
           method: 'DELETE',
           headers: {
@@ -117,19 +132,33 @@ export default {
           // Gérer l'erreur de l'API si nécessaire
         });
       },
-
+      updateProduct() {
+        const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDAzMjI5MjAsImV4cCI6MTcwMDMyNjUyMCwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6Im1heWV1bC5ncmFzQGVwaXRlY2guZGlnaXRhbCJ9.vZR7ZrADQetjmMI-vNGx-eNDr0Dw3ZlKgv_0FE0La3eT0IAHIsImrQix-2hestP1nlebAf_DcfLLYRXLTUlR2ybp5aQ3KKynO3cKk4tKswm8uinD7-hBtoUhh6ztLOFnaJ7A8nTq8ttRMqqtCe_pNVbzXpke7VZwb8utATb03gG_hH8cMfoBBHhpDDuYmtHd78VWNgfbzo8XRTWwDhqqe9PTJdKodYOaxTTBaLjwPIWXo_AbiMh2ejo1GTzb_z-qkICGOv4ZpCHZVDTsChi5O_Fzh7rjHDTqvbYBrEnvODwZgHbglySAKTFR0KejFfgqBI9R3LDksICh4dbmZDpVxw'; // Remplacez par votre token d'authentification
+        Axios.put(`http://localhost/api/products/${this.editedProduct.id}`, this.editedProduct, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          }
+        })
+        .then(response => {
+          console.log('Produit mis à jour avec succès', response.data);
+          // Réinitialisez les détails du produit à éditer après la mise à jour réussie
+          this.editedProduct = {
+            id: null,
+            name: '',
+            description: '',
+            price: 0,
+            categories: [],
+          };
+        })
+        .catch(error => {
+          console.error('Erreur lors de la mise à jour du produit', error.message, error.response.data);
+        });
+      },
       editProduct(product) {
-        // Pré-remplir le formulaire avec les détails du produit sélectionné
-        document.getElementById('Name').value = product.name;
-        document.getElementById('Description').value = product.description;
-        document.getElementById('Price').value = product.price;
-        document.getElementById('Categories').value = product.categories.join(', ');
-
-        // Enregistrez l'ID du produit actuellement édité
-        // this.editingProductId = product.id;
-
-        // Vous pouvez également ajouter une logique pour afficher/modifier l'interface utilisate
-      }
+        // Copiez les détails du produit à éditer dans la propriété editedProduct
+        this.editedProduct = { ...product };
+      },
     }
   }
   
